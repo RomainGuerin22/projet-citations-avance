@@ -16,7 +16,8 @@
       citationElement.innerText = 'Chargement...';
       
       try {
-        var response = await fetch('https://zenquotes.io/api/random');
+        // API Quotable - sans problème CORS
+        var response = await fetch('https://api.quotable.io/random');
         
         if (!response.ok) {
           throw new Error('Erreur HTTP: ' + response.status);
@@ -24,8 +25,8 @@
         
         var data = await response.json();
         
-        if (data && data.length > 0 && data[0].q && data[0].a) {
-          citationElement.innerText = '"' + data[0].q + '" — ' + data[0].a;
+        if (data && data.content && data.author) {
+          citationElement.innerText = '"' + data.content + '" — ' + data.author;
         } else {
           throw new Error('Données invalides');
         }
