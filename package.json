@@ -1,16 +1,18 @@
 {
   "name": "projet-citations-avance",
   "version": "1.0.0",
-  "description": "",
+  "description": "Générateur de citations dynamique avec API",
   "main": "src/server.js",
   "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
     "test": "jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/romainguerin22/projet-citations-avance.git"
   },
-  "keywords": [],
+  "keywords": ["citations", "api", "express"],
   "author": "",
   "license": "ISC",
   "bugs": {
