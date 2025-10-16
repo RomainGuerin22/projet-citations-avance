@@ -2,14 +2,42 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Générateur de Citations</title>
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Générateur de Citations</h1>
   <blockquote id="citation">Chargement...</blockquote>
   <button id="nouvelle">Nouvelle citation</button>
 
-  <script src="script.js"></script>
+  <script>
+    async function chargerCitation() {
+      var citationElement = document.getElementById('citation');
+      citationElement.innerText = 'Chargement...';
+      
+      try {
+        var response = await fetch('https://zenquotes.io/api/random');
+        
+        if (!response.ok) {
+          throw new Error('Erreur HTTP: ' + response.status);
+        }
+        
+        var data = await response.json();
+        
+        if (data && data.length > 0 && data[0].q && data[0].a) {
+          citationElement.innerText = '"' + data[0].q + '" — ' + data[0].a;
+        } else {
+          throw new Error('Données invalides');
+        }
+        
+      } catch (error) {
+        console.error('Erreur:', error);
+        citationElement.innerText = 'Erreur lors du chargement. Cliquez sur le bouton pour réessayer.';
+      }
+    }
+
+    document.getElementById('nouvelle').addEventListener('click', chargerCitation);
+    window.addEventListener('load', chargerCitation);
+  </script>
 </body>
 </html>
