@@ -1,0 +1,28 @@
+{
+  "name": "projet-citations-avance",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/romainguerin22/projet-citations-avance.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/romainguerin22/projet-citations-avance/issues"
+  },
+  "homepage": "https://github.com/romainguerin22/projet-citations-avance#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0",
+    "nodemon": "^3.1.10"
+  }
+}
