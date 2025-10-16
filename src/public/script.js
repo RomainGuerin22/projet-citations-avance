@@ -4,7 +4,7 @@ async function chargerCitation() {
 
         const target = 'https://zenquotes.io/api/random';
         const proxy = 'https://api.allorigins.win/raw?url=';
-        const url = proxy + encodeURIComponent(target) + ?cachebuster=${Date.now()};
+        const url = proxy + encodeURIComponent(target) + `?cachebuster=${Date.now()}`;
 
         const resp = await fetch(url);
         const data = await resp.json();
